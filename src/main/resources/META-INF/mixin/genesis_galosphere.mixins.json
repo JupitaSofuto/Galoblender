@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8.5",
+  "package": "com.jupitersoft.genesis.coremod.mixin.common",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "plugin": "com.jupitersoft.genesis.coremod.GenesisCoreMod",
+  "mixins": [
+    "galosphere.GalosphereRegionMixin",
+    "terrablender.RegionMixin",
+  ]
+}

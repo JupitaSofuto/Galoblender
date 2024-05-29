@@ -1,0 +1,9 @@
+{
+  "pack": {
+    "description": {
+      "translate": "pack.genesis.mod.description"
+    },
+    "forge:data_pack_format": 10,
+    "pack_format": 9
+  }
+}

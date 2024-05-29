@@ -1,0 +1,4 @@
+{
+  "MixinCastrator": "coremods/MixinCastrator.js",
+  "ClassAmputator": "coremods/ClassAmputator.js",
+}
