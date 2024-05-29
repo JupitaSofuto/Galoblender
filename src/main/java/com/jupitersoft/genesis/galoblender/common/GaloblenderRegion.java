@@ -1,6 +1,5 @@
-package com.jupitersoft.genesis.common;
+package com.jupitersoft.genesis.galoblender.common;
 
-import com.jupitersoft.genesis.common.config.GenesisConfig;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -10,9 +9,9 @@ import net.orcinus.galosphere.compat.integration.terrablender.GalosphereRegion;
 
 import java.util.function.Consumer;
 
-public class GnGalosphereRegion extends GalosphereRegion {
-    public GnGalosphereRegion() {
-        super(GenesisConfig.COMMON.galosphereCavesWeight.get());
+public class GaloblenderRegion extends GalosphereRegion {
+    public GaloblenderRegion() {
+        super(GaloblenderConfig.COMMON.galosphereCavesWeight.get());
     }
 
     @Override

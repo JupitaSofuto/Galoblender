@@ -7,15 +7,14 @@ ModsDotGroovy.make {
         modId = this.buildProperties.mod_id
         version = this.buildProperties.mod_version
         displayName = this.buildProperties.mod_name
-        displayUrl = 'https://www.curseforge.com/minecraft/modpacks/genesis-pack'
-        logoFile = 'icon.png'
+        displayUrl = 'https://www.curseforge.com/minecraft/mc-mods/galoblender'
+        logoFile = 'logo.png'
         credits = "${this.buildProperties.mod_vendor}"
         authors = ['Jonathing']
         displayTest = DisplayTest.MATCH_VERSION
-        description = '''A module from Genesis: Core that repairs Galosphere compatibility with Terrablender.'''
+        description = '''Repairs Galosphere compatibility with Terrablender. Made for GENESIS.'''
 
         catalogueImageIcon = 'icon.png'
-        catalogueBackground = 'background.png'
 
         dependencies {
             minecraft = this.buildProperties.mc_version_range
