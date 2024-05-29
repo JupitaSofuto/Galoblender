@@ -1,1 +1,0 @@
-MixinConnector: com.jupitersoft.genesis.coremod.GenesisCoreMod

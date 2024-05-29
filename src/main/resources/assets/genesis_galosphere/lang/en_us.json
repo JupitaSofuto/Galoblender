@@ -1,4 +1,5 @@
 {
+  "pack.genesis_galosphere.mod.description": "Resources for Genesis: Core Module - Galosphere",
   "genesis.configgui.common.galosphereCavesWeight": "Galosphere Caves Weight",
   "genesis.configgui.common.galosphereCavesWeight.tooltip": "The weighting of Galosphere biome region in the overworld (for reference, the overworld biomes' default is 10)."
 }

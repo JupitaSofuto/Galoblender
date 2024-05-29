@@ -1,4 +1,4 @@
 {
-  "MixinCastrator": "coremods/MixinCastrator.js",
-  "ClassAmputator": "coremods/ClassAmputator.js",
+  "galosphere/GalosphereRegionCoreMod": "coremods/galosphere/GalosphereRegionCoreMod.js",
+  "galosphere/MiscEvents": "coremods/galosphere/MiscEventsCoreMod.js"
 }

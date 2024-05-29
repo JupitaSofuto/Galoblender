@@ -146,15 +146,14 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:${mixin_version}:processor")
 
     // Galosphere
-    implementation(fg.deobf("curse.maven:galosphere-631098:${galosphere_version}"))
+    runtimeOnly(fg.deobf("curse.maven:galosphere-631098:${galosphere_version}"))
+    compileOnly(fg.deobf("net.orcinus:galosphere:1.19.2-1.3.0-genesis"))
 
     // Terrablender
     implementation(fg.deobf("com.github.glitchfiend:TerraBlender-forge:${mc_version}-${terrablender_version}"))
 }
 
 mixin {
-    add sourceSets.main, "META-INF/mixin/${mod_id}.refmap.json"
-
     debug.export = true
 }
 
@@ -168,8 +167,7 @@ tasks.named('jar', Jar).configure {
             'Implementation-Title'    : mod_name,
             'Implementation-Version'  : jar.archiveVersion,
             'Implementation-Vendor'   : mod_vendor,
-            'Implementation-Timestamp': new Date().format('yyyy-MM-dd\'T\'HH:mm:ssZ'),
-            'MixinConnector'          : mixin_connector
+            'Implementation-Timestamp': new Date().format('yyyy-MM-dd\'T\'HH:mm:ssZ')
         ])
     }
 

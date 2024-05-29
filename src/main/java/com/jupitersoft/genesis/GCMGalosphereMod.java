@@ -1,5 +1,6 @@
 package com.jupitersoft.genesis;
 
+import com.jupitersoft.genesis.common.GnGalosphereRegion;
 import com.jupitersoft.genesis.common.config.GenesisConfig;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -21,14 +22,12 @@ public class GCMGalosphereMod {
     public GCMGalosphereMod() {
         // register configs
         LOGGER.debug(INIT_MARKER, "Registering configs");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, GenesisConfig.CLIENT_SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GenesisConfig.COMMON_SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, GenesisConfig.SERVER_SPEC);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> Regions.register(new GalosphereRegion()));
+        event.enqueueWork(() -> Regions.register(new GnGalosphereRegion()));
     }
 }
