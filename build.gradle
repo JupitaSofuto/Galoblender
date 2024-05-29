@@ -143,8 +143,8 @@ tasks.named('jar', Jar).configure {
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
-            groupId = "${group}.registry"
-            artifactId = "registry-${mc_version}"
+            groupId = "${group}.${mod_id}"
+            artifactId = "${mod_id}-${mc_version}-forge"
             version = "${mod_version}"
 
             artifact jar
