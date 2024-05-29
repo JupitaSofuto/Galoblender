@@ -7,9 +7,10 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '[1,2)'
     id 'org.groovymc.modsdotgroovy' version '[1.4,2)'
     id 'org.moddingx.modgradle.mapping' version '[4,5)'
+    id 'org.moddingx.modgradle.sourcejar' version '[4,5)' apply false
 }
 
-version = "${mc_version}-${mod_version}"
+version = "${mc_version}-forge-${mod_version}"
 group = mod_vendor_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 base {
@@ -17,6 +18,8 @@ base {
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+apply plugin: 'org.moddingx.modgradle.sourcejar'
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
@@ -129,6 +132,37 @@ tasks.named('jar', Jar).configure {
 
     // This is the preferred method to reobfuscate your jar file
     finalizedBy 'reobfJar'
+}
+
+// Want to test publishing your maven artifacts? no problem
+// run the publishToMavenLocal task
+// your files will show up in the following locations (unless you set the maven home elsewhere):
+//   WINDOWS: %USERPROFILE%\.m2
+//   MACOS/LINUX: ~/.m2
+// you can access your local publication through mavenLocal
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            groupId = "${group}.registry"
+            artifactId = "registry-${mc_version}"
+            version = "${mod_version}"
+
+            artifact jar
+            artifact sourceJar
+        }
+    }
+    repositories {
+        // Modding Legacy Maven (ML exclusive)
+        maven {
+            name 'ModdingLegacyMaven'
+            url uri('https://maven.moddinglegacy.com/repository/modding-legacy/')
+            credentials {
+                username = project.findProperty('mlm.user') ?: System.getenv('ML_USERNAME')
+                password = project.findProperty('mlm.key') ?: System.getenv('ML_TOKEN')
+            }
+        }
+    }
+
 }
 
 // Use UTF-8
