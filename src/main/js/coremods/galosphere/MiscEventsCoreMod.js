@@ -15,9 +15,10 @@ function initializeCoreMod() {
 }
 
 function disableOnParallelDispatched(method) {
-    ASMAPI.log('DEBUG', 'Removing visible annotations from method: {}.{} in class net.orcinus.galosphere.events.MiscEvents', method.name, method.desc);
+    // clear visible annotations, which deletes @SubscribeEvent
     method.visibleAnnotations.clear();
 
+    // finish up
     ASMAPI.log('DEBUG', '{}.{}\n{}', 'net.orcinus.galosphere.events.MiscEvents', method.name, ASMAPI.methodNodeToString(method));
     return method;
 }

@@ -61,6 +61,7 @@ function constructorWithWeight(clazz) {
     constructor.localVariables.add(new LocalVariableNode('weight', 'I', null, start, end, 1));
     constructor.maxLocals++;
 
-    ASMAPI.log('DEBUG', '{}\n{}', clazz.name.replaceAll('/', '.'), ASMAPI.classNodeToString(clazz));
+    // finish up
+    ASMAPI.log('TRACE', '{}\n{}', clazz.name.replaceAll('/', '.'), ASMAPI.classNodeToString(clazz));
     return clazz;
 }

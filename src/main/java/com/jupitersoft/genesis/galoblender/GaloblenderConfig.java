@@ -1,16 +1,24 @@
-package com.jupitersoft.genesis.galoblender.common;
+package com.jupitersoft.genesis.galoblender;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 
 public class GaloblenderConfig {
-    public static final ForgeConfigSpec COMMON_SPEC;
-
+    // CONFIGS
     public static final Common COMMON;
+
+    // CONFIG SPECS
+    private static final ForgeConfigSpec COMMON_SPEC;
 
     static {
         var commonSpecBuilder = new ForgeConfigSpec.Builder();
         COMMON = new Common(commonSpecBuilder);
         COMMON_SPEC = commonSpecBuilder.build();
+    }
+
+    static void register(ModLoadingContext context) {
+        context.registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
     }
 
     public static class Common {

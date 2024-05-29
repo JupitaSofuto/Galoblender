@@ -1,4 +1,4 @@
-package com.jupitersoft.genesis.galoblender.common;
+package com.jupitersoft.genesis.galoblender;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
