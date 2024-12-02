@@ -13,11 +13,11 @@ public class Galoblender {
         GaloblenderConfig.register(ModLoadingContext.get());
 
         // event listeners
-        var modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> Regions.register(new GaloblenderRegion()));
+        event.enqueueWork(GaloblenderRegion::register);
     }
 }
