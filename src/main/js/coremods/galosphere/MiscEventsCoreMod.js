@@ -19,6 +19,5 @@ function disableOnParallelDispatched(method) {
     method.visibleAnnotations.clear();
 
     // finish up
-    ASMAPI.log('TRACE', '{}.{}\n{}', 'net.orcinus.galosphere.events.MiscEvents', method.name, ASMAPI.methodNodeToString(method));
     return method;
 }

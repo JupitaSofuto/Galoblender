@@ -62,6 +62,5 @@ function constructorWithWeight(clazz) {
     constructor.maxLocals++;
 
     // finish up
-    ASMAPI.log('TRACE', '{}\n{}', clazz.name.replaceAll('/', '.'), ASMAPI.classNodeToString(clazz));
     return clazz;
 }
